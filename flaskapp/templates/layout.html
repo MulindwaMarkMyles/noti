@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% if title %}
+	<title>NOTES - {{ title }}</title>
+	{% else %}
+	<title>NOTES</title>
+	{% endif %}
+	{% if title == "REGISTER"  or title == "LOGIN"  or title == "ACCOUNT" or title == "Reset Password" %}
+	<link rel="stylesheet" href="{{ url_for('static' ,filename='styles/register.css') }}">
+	{% endif %}
+	{% if title == "ACCOUNT" %}
+	<link rel="stylesheet" href="{{ url_for('static' ,filename='styles/account.css') }}">
+	{% endif %}
+	<link rel="stylesheet" href="{{ url_for('static', filename='styles/layout.css') }}">
+	<script defer type="text/javascript" src="{{ url_for('static' , filename='scripts/layout.js') }}"></script>
+        {% if title == "HOME" %}
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/index.css') }}">
+        <script defer type="text/javascript" src="{{ url_for('static', filename='scripts/index.js') }}"></script>
+        {% endif %}
+</head>
+<body>
+	{% with messages= get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                <ul class="flashes">
+                        {% for category, message in messages %}
+                                <li class="{{ category }}">
+                                        {{ message }}
+                                </li>
+                        {% endfor %}
+                </ul>
+                {% endif %}
+        {% endwith %}
+	<div class="container">
+		{% block content %}
+		{% endblock %}
+	</div>
+</body>
+</html>

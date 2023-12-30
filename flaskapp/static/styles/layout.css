@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+
+.flashes {
+        left:20px;
+        top:70px;
+        position: absolute;
+        list-style: none;
+        z-index: 1000;
+        font-family: "Poppins";
+}
+
+.flashes .success {
+        padding: 5px 10px;
+        background-color: #95db79;
+        color:green;
+        border-radius: 5px;
+}
+
+.flashes .error {
+        padding: 5px 10px;
+        background-color: rgb(218, 144, 144);
+        color:red;
+        border-radius: 5px;
+}
+
+.flashes .info {
+        padding: 5px 10px;
+        background-color: rgb(144, 144, 230);
+        color:blue;
+        border-radius: 5px;
+}
+
+.flashes .warning {
+        padding: 5px 10px;
+        background-color: rgb(175, 175, 88);
+        color:yellow;
+        border-radius: 5px;
+}
+/* body {
+        background-image: url("/static/images/background__.jpg");
+        background-size: 100%;
+        background-position: center;
+        background-attachment: fixed;
+} */
+
+
+
+
+
