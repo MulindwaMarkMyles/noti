@@ -2,9 +2,10 @@
 {% block content %}
         <div class="header">
                 <div class="dp"><img  class="dp-image" src="{{ image_file }}"></div>
-                <div class="search-wrapper">
-                        <input type="text" class="search-bar" id="js-search-term" name="search_term" placeholder="Looking for something...">
-                        <button type="submit" id="js-search-button">SEARCH</button>
+                <form class="search-wrapper" method="POST">
+                        {{ form.hidden_tag() }} 
+                        {{ form.searchterm(class="search-bar", placeholder="Looking for something....")}}
+                        {{ form.submit(class="btn") }}
                 </div>
                 <div class="settings" id="js-click">
                         <span></span>
@@ -28,20 +29,17 @@
                 {% for post in posts %}
                 <article class="card">
                         <a  href="{{ url_for('posts.post', post_id=post.id) }}">
-                                <div class="title card-title-js">{{ post.title }}</div>
+                                <div class="card-body card-title-js">{{ post.title }}</div>
                                 <div class="card-body card-body-js">{{ post.content }}</div>
-                                <div class="card-body card-body-js">{{ post.date_posted.strftime('%Y-%m-%d') }}</div>
+                                <div class="card-date">{{ post.date_posted.strftime('%Y-%m-%d') }}</div>
                         </a>
                 </article>
                 {% endfor %}
         </div>
         <a href="{{ url_for('posts.new_note') }}">
                 <div class="add-note">
-                        <div class="the-button">
-                                <span></span>
-                                <button>click me!</button>
-                                <span></span>
-                        </div>
+                                <button class="btn-1" type="button">+</button>
                 </div>
         </a>
 {% endblock %}
+

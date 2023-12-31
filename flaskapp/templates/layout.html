@@ -5,19 +5,24 @@
 	<title>NOTES - {{ title }}</title>
 	{% else %}
 	<title>NOTES</title>
+        <link rel="stylesheet" href="{{ url_for('static' ,filename='styles/viewnote.css') }}">
 	{% endif %}
-	{% if title == "REGISTER"  or title == "LOGIN"  or title == "ACCOUNT" or title == "Reset Password" %}
+        {% if title == "NEWNOTE" or title == "Update Post" %}
+        <link rel="stylesheet" href="{{ url_for('static' ,filename='styles/addnotes.css') }}">
+        {% endif %}
+	{% if title == "REGISTER"  or title == "LOGIN" or title == "Reset Password" %}
 	<link rel="stylesheet" href="{{ url_for('static' ,filename='styles/register.css') }}">
 	{% endif %}
 	{% if title == "ACCOUNT" %}
 	<link rel="stylesheet" href="{{ url_for('static' ,filename='styles/account.css') }}">
-	{% endif %}
+        {% endif %}
 	<link rel="stylesheet" href="{{ url_for('static', filename='styles/layout.css') }}">
 	<script defer type="text/javascript" src="{{ url_for('static' , filename='scripts/layout.js') }}"></script>
         {% if title == "HOME" %}
         <link rel="stylesheet" href="{{ url_for('static', filename='styles/index.css') }}">
         <script defer type="text/javascript" src="{{ url_for('static', filename='scripts/index.js') }}"></script>
         {% endif %}
+        
 </head>
 <body>
 	{% with messages= get_flashed_messages(with_categories=true) %}

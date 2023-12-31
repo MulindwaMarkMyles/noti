@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mooli&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600&display=swap');
+
+* {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins' , sans-serif;
+}
+.note_context {
+        display:grid;
+        grid-template-rows: 150px 5px 1fr;
+        gap:25px;
+        margin:20px;
+}
+.title, .note {
+        font-size: 20px;
+        padding:20px;
+        font-family:"Montserrat";
+}
+.separator {
+        width:100%;
+        background-color: black;
+        height: 2px;
+}
+.buttons {
+        display: flex;
+        position:fixed;
+        flex-direction: row;
+        gap:50px;
+        bottom:100px;
+        right:55px;
+}
+.buttons form input,
+.buttons a button {
+        background-color: black;
+        padding:5px;
+        border:none;
+        color:white;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 17px;
+}
+.dts {
+        position: fixed;
+        bottom:30px;
+        transform:translateX(-50%);
+        left:50%;
+        font-size:17px;
+}
+@media (max-width:900px) {
+        .dts {
+                font-size:20px;
+        }
+}

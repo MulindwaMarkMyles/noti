@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mooli&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600&display=swap');
+
+* {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins' , sans-serif;
+}
+
+.the_form {
+        margin:20px 20px;
+        height:100vh;
+}
+.field {
+        display: flex;
+        gap:10px;
+        flex-direction: column;
+        height: 50vh;
+}
+.form_div {
+        display: grid;
+        grid-template-rows: 150px 1fr;
+}
+.form-control-label {
+        font-size:20px;
+}
+.form-control {
+        border-top:none;
+        border-bottom:1px solid black;
+        font-family: "Montserrat";
+        font-size:17px;
+        border-left:none;
+        padding:5px;
+        border-right:none;
+        border-radius: 5px;
+}
+.form-control:focus {
+        outline: none;
+}
+.form-control-c {
+        height: 90%;
+}
+.submit-button {
+        width:95%;
+        display: flex;
+        margin:30px 0px;
+        justify-content: right;
+}
+.btn {
+        padding:5px 10px;
+        background-color: black;
+        color:white;
+        font-size:18px;
+        border:none;
+        border-radius: 5px;
+}

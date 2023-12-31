@@ -20,9 +20,13 @@
                                 </span>
                                 
                         </div>
-                        <span class="submit-button">
-                                {{ form.submit(class="btn") }}
-                        </span>
+                        <div class="buttons">
+                                <span class="submit-button">
+                                        {{ form.submit(class="btn") }}
+                                </span>
+                                <button class="btn"> <a class="reset" href="{{ url_for('users.registration') }}">Register</a></button>
+                        </div>
+                        
                 </form>
         </div>
 {% endblock %}
