@@ -10,7 +10,6 @@
 }
 body {
         margin: 80px 20px;
-        height: 3000px;
 }
 .header {
         position: fixed;
@@ -149,6 +148,7 @@ body {
         padding: 10px 10px;
         transition: 0.2s all linear;
         position: relative;
+        background-color: white;
 }
 .card-date {
         font-size:15px;
@@ -163,6 +163,7 @@ body {
 }
 .card:hover {
         transform: scale(1.1);
+        z-index:10;
 }
 .user-notes {
         display: grid;

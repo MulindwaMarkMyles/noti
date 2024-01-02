@@ -3,6 +3,7 @@ from flaskapp import login_manager
 from flaskapp.models import Post
 from flask_login import current_user, login_required
 from flaskapp.main.forms import SearchForm
+from flaskapp.main.utils import the_device
 
 main = Blueprint('main', __name__)
 
@@ -14,14 +15,19 @@ def home():
         form = SearchForm()
         posts = Post.query.filter_by(user_id=current_user.id).order_by(Post.date_posted.desc()).all()
         if request.method == "GET":
-                return render_template("index.html",title="HOME", image_file=image_file, posts=posts, form=form)
+                if the_device():
+                        return render_template("index-mobile.html",title="HOME-MOBILE", image_file=image_file, posts=posts, form=form, device=the_device())
+                else:
+                        return render_template("index.html",title="HOME", image_file=image_file, posts=posts, form=form, device=the_device())
         elif request.method == "POST":
                 search_results = []
                 for item in posts:
-                        print(item.title)
                         if item.title.lower().__contains__(form.searchterm.data) or item.content.lower().__contains__(form.searchterm.data):
                                 search_results.append(item)
-                return render_template("index.html",title="HOME", image_file=image_file, posts=search_results, form=form)
+                if the_device():
+                        return render_template("index-mobile.html",title="HOME-MOBILE", image_file=image_file, posts=search_results, form=form, device=the_device())
+                else:
+                        return render_template("index.html",title="HOME", image_file=image_file, posts=search_results, form=form, device=the_device())
 
 @main.route("/about")
 def about():

@@ -12,12 +12,19 @@
         display:grid;
         grid-template-rows: 150px 5px 1fr;
         gap:25px;
-        margin:20px;
+        margin-top:20px;
+        position: relative;
+        right:0px;
+        left:0px
 }
-.title, .note {
+.title, 
+.note {
         font-size: 20px;
         padding:20px;
-        font-family:"Montserrat";
+        font-family:"Montserrat", sans-serif;
+        overflow-wrap: break-word;
+        word-wrap: break-all;
+        width:100vw;
 }
 .separator {
         width:100%;
@@ -32,7 +39,7 @@
         bottom:100px;
         right:55px;
 }
-.buttons form input,
+.delete-button,
 .buttons a button {
         background-color: black;
         padding:5px;
@@ -48,9 +55,17 @@
         transform:translateX(-50%);
         left:50%;
         font-size:17px;
+        background-color: white;
+        padding:10px;
+        box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
+        border-radius: 5px;
 }
 @media (max-width:900px) {
         .dts {
                 font-size:20px;
         }
+}
+.delete-button {
+        background-color: rgb(207, 146, 146);
+        color:red
 }

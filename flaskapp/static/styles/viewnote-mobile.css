@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mooli&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600&display=swap');
+
+* {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins' , sans-serif;
+}
+
+.note_context {
+        margin:20px;
+        margin-top:40px;
+        display: flex;
+        flex-direction: column;
+        box-shadow:5px 5px 10px rgba(0,0,0,0.3);
+        border-radius: 10px;
+        padding:10px;
+}
+label {
+        text-decoration: underline;
+        font-size: 4vw;
+}
+.note,
+.title {
+        overflow-wrap: break-word;
+        word-wrap: break-all;
+        font-size: 4.2vw;
+}
+.field {
+        display: flex;
+        flex-direction: column;
+        margin-bottom:10px
+}
+.buttons {
+        width: 100vw;
+        padding:0px 20px;
+        margin-bottom: 100px;
+}
+.delete-button,
+.btn {
+        padding:5px 10px;
+        background-color: black;
+        margin-top:20px;
+        color:white;
+        font-size:4vw;
+        border:none;
+        width:100%;
+        border-radius: 5px;
+        z-index:10;
+}
+.delete-button {
+        background-color: rgb(207, 146, 146);
+        color:red
+}
+.dts {
+        position: fixed;
+        bottom:10px;
+        text-align: center;
+        font-size:3.5vw;
+        width:100vw;
+        background-color: white;
+}

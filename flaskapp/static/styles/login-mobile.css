@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mooli&display=swap');
+
+* {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins' , sans-serif;
+}
+
+.content-section {
+        margin-top:200px;
+        margin-right:20px;
+        margin-left:20px;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.432);
+        padding:20px 20px;
+        border-radius: 5px;
+}
+.the_form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+}
+.join {
+        width:100%;
+        text-align: center;
+        font-size:6vw;
+        font-weight: 500;
+}
+.form_div,
+.field {
+        display: flex;
+        gap:7px;
+        flex-direction: column;
+        padding:5px;
+}
+.form-control {
+        font-size:4vw;
+        padding:7px;
+        border-radius: 5px;
+}
+.form-control-label {
+        font-size:4.5vw;
+}
+.login-qn,
+.form-check {
+        margin:17px 10px;
+        font-size:clamp(20px, 4vw, 4.5vw);
+}
+.form-check-input {
+        transform: scale(2.5) translate(0, -3px);
+        margin-right: 10px;
+}
+.submit-button {
+        margin-top:10px;
+        margin-bottom:12px;
+}
+.Forgot a{
+        text-decoration: underline;
+        font-size:4vw;
+        margin-left:15px;
+}
+.btn {
+        padding:5px 9px;
+        font-size:4vw;
+        color:white;
+        background-color: black;
+        border:none;
+        border-radius: 10px;
+        cursor: pointer;
+}

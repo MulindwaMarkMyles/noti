@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% block content %}
+        <div class="content-section">
+                <form  class="the_form" method="POST">
+                        {{ form.hidden_tag() }}
+                        <span class="join">Reset Password</span>
+                        <div class="form_div">
+                                <span class="field">
+                                        {{ form.email.label(class="form-control-label") }}
+                                        {% if form.email.errors %}
+                                                {{ form.email(class="form-control ") }}
+                                                <div>
+                                                        {% for error in form.email.errors %}
+                                                                <span>{{ error }}</span>
+                                                        {% endfor %}
+                                                </div>       
+                                        {% else %}
+                                                {{ form.email(class="form-control ") }}
+                                        {% endif %}
+                                </span>
+                                
+                        </div>
+                        <div class="buttons">
+                                <span class="submit-button">
+                                        {{ form.submit(class="btn") }}
+                                </span>
+                                <a class="reset" href="{{ url_for('users.registration') }}"><button class="btn" type="button">Register</button></a>
+                        </div>
+                        
+                </form>
+        </div>
+{% endblock %}
+        

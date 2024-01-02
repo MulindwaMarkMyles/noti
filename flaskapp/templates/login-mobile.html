@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+{% block content %}
+        <div class="content-section">
+                <form  class="the_form" method="POST">
+                        {{ form.hidden_tag() }}
+                        <span class="join">SIGN IN!</span>
+                        <div class="form_div">
+                                <span class="field">
+                                        {{ form.email.label(class="form-control-label") }}
+                                        {% if form.email.errors %}
+                                                {{ form.email(class="form-control ") }}
+                                                <div>
+                                                        {% for error in form.email.errors %}
+                                                                <span>{{ error }}</span>
+                                                        {% endfor %}
+                                                </div>       
+                                        {% else %}
+                                                {{ form.email(class="form-control ") }}
+                                        {% endif %}
+                                </span>
+                                <span class="field">
+                                        {{ form.password.label(class="form-control-label") }}
+                                        {% if form.password.errors %}
+                                                {{ form.password(class="form-control ") }}
+                                                <div>
+                                                        {% for error in form.password.errors %}
+                                                                <span>{{ error }}</span>
+                                                        {% endfor %}
+                                                </div>       
+                                        {% else %}
+                                                {{ form.password(class="form-control ") }}
+                                        {% endif %}
+                                </span>
+                        </div>
+                        <div class="form-check">
+                                {{ form.remember(class="form-check-input") }}
+                                {{ form.remember.label(class="form-check-label") }}
+                        </div>
+                        <span class="submit-button">
+                                {{ form.submit(class="btn") }}
+                                <small class="Forgot Password">
+                                        <a href="{{ url_for('users.reset_password') }}">Forgot Password?</a>
+                                </small>
+                        </span>
+                </form>
+                <div class="login-button">
+                <small class="login-qn">
+                        Don't have an account? <a class="login-redirect" href="{{ url_for('users.registration') }}">Sign Up</a>
+                </small>
+                </div>
+        </div>
+{% endblock %}
+        

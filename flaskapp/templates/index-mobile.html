@@ -2,29 +2,30 @@
 {% block content %}
         <div class="header">
                 <div class="dp"><img  class="dp-image" src="{{ image_file }}"></div>
-                <form class="search-wrapper" method="POST">
-                        {{ form.hidden_tag() }} 
-                        {{ form.searchterm(class="search-bar", placeholder="Looking for something....")}}
-                        {{ form.submit(class="btn") }}
-                </form>
+                <div class="space"></div>
                 <div class="settings" id="js-click">
                         <span></span>
                         <span></span>
                         <span></span>
                 </div>
-                <div class="menu" id="js-menu">
-                        <a href="{{ url_for('users.account') }}"><span>Account</span></a>
-                        <a href="{{ url_for('main.about') }}"><span>About</span></a>
-                        {% if current_user.is_authenticated %}
-                        <a href="{{ url_for('users.logout') }}"><span>Log out</span></a>
-                        {% endif %}
-                </div>
         </div>
+        <div class="menu" id="js-menu">
+                <a href="{{ url_for('users.account') }}"><span>Account</span></a>
+                <a href="{{ url_for('main.about') }}"><span>About</span></a>
+                {% if current_user.is_authenticated %}
+                <a href="{{ url_for('users.logout') }}"><span>Log out</span></a>
+                {% endif %}
+        </div>
+        <form class="search-wrapper" method="POST">
+                {{ form.hidden_tag() }} 
+                {{ form.searchterm(class="search-bar", placeholder="Looking for something....")}}
+        </form>
         <div class="greetings">
                 <span>
-                        Hi {{ current_user.username }} !
+                        Hi {{ current_user.username }}!
                 </span>
         </div>
+
         <div class="user-notes">
                 {% for post in posts %}
                 <a class="card" href="{{ url_for('posts.post', post_id=post.id) }}">
