@@ -18,6 +18,8 @@ class RegistrationForm(FlaskForm):
                         raise ValidationError("The username is already taken!")
         
         def validate_email(self, email):
+                if email.data.__contains__(' '):
+                        raise ValidationError("Please make sure the email has no spaces before and after it!")
                 user = User.query.filter_by(email=email.data).first()
                 if user:
                         raise ValidationError("That email is already taken!")
@@ -27,6 +29,10 @@ class LoginForm(FlaskForm):
         password = PasswordField("Password", validators=[DataRequired()])
         remember = BooleanField('Remember Me')
         submit = SubmitField('Login')
+        
+        def validate_email(self, email):
+                if email.data.__contains__(' '):
+                        raise ValidationError("Please make sure the email has no spaces before and after it!")
         
 class UpdateAccountForm(FlaskForm):
         username = StringField("Username:", validators=[DataRequired(), Length(min=2, max=30)])
@@ -41,6 +47,8 @@ class UpdateAccountForm(FlaskForm):
                                 raise ValidationError("The username is already taken!")
         
         def validate_email(self, email):
+                if email.data.__contains__(' '):
+                        raise ValidationError("Please make sure the email has no spaces before and after it!")
                 if email.data != current_user.email:
                         user = User.query.filter_by(email=email.data).first()
                         if user:
@@ -51,9 +59,11 @@ class RequestResetForm(FlaskForm):
         submit = SubmitField("Request Password Reset")
         
         def validate_email(self, email):
+                if email.data.__contains__(' '):
+                        raise ValidationError("Please make sure the email has no spaces before and after it!")
                 user = User.query.filter_by(email=email.data).first()
                 if user is None:
-                        raise ValidationError("There is no account with that email!, Please register first")
+                        raise ValidationError("There is no account with that email!, Please register first.")
                 
 class ResetPasswordForm(FlaskForm):
         password = PasswordField("Password", validators=[DataRequired()])
