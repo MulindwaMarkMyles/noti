@@ -11,7 +11,7 @@
                                                 {{ form.email(class="form-control ") }}
                                                 <div>
                                                         {% for error in form.email.errors %}
-                                                                <span>{{ error }}</span>
+                                                                <span class="error">{{ error }}</span>
                                                         {% endfor %}
                                                 </div>       
                                         {% else %}

@@ -38,6 +38,10 @@
         color:yellow;
         border-radius: 5px;
 }
+.error {
+        font-size: 3vw;
+        color:white;
+}
 
 
 

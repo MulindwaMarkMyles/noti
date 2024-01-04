@@ -36,6 +36,10 @@
         color:yellow;
         border-radius: 5px;
 }
+.error {
+        font-size: inherit;
+        color:white;
+}
 
 
 
