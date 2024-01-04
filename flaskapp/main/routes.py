@@ -22,7 +22,7 @@ def home():
         elif request.method == "POST":
                 search_results = []
                 for item in posts:
-                        if item.title.lower().__contains__(form.searchterm.data) or item.content.lower().__contains__(form.searchterm.data):
+                        if item.title.lower().__contains__(form.searchterm.data.lower()) or item.content.lower().__contains__(form.searchterm.data.lower()):
                                 search_results.append(item)
                 if the_device():
                         return render_template("index-mobile.html",title="HOME-MOBILE", image_file=image_file, posts=search_results, form=form, device=the_device())

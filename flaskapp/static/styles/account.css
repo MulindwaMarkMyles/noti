@@ -33,6 +33,12 @@
         padding: 10px 0px;
         border-radius: 7px;
 }
+.form_div {
+        box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
+        padding:20px;        
+        background-color:#181D27;
+
+}
 .field {
         display: flex;
         gap:10px;
@@ -42,6 +48,7 @@
 .form-control-label {
         text-decoration: italic;
         font-weight: 500;
+        color:white;
 }
 .form-control[type="text"] {
         padding:10px 10px;
@@ -57,12 +64,12 @@
 .button {
         display: inline-block;
         cursor: pointer;
-        background-color: black;
+	background-color: #373E40 ;
         color:white;
         padding:5px 10px;
         border-radius: 5px;
         width:fit-content;
-        margin:40px;
+        margin:20px;
 }
 .form-control-pic[type="file"] {
         display: none;
@@ -71,7 +78,7 @@
         width:100%;
 }
 .btn {
-        background-color: black;
+	background-color: #373E40 ;
         color:white;
         border:none;
         padding:5px;
@@ -79,4 +86,5 @@
         font-weight: 500;
         cursor:pointer;
         font-size: 17px;
+        margin-top:15px;
 }

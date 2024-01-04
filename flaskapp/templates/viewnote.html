@@ -1,12 +1,13 @@
 {% extends "layout.html" %}
 {% block content %}
 	<div class="note_context">
-		<div class="title">{{ post.title }} </div>
-		<span class="separator"></span>
-                <div class="note">{{ post.content }}</div>
+                <label for="title">Title</label>
+		<input class="title" value="{{ post.title }}" readonly>
+		<label for="note">Content</label>
+                <textarea class="note" name="content" id="content" readonly>{{ post.content }}</textarea>
         </div>
         <div class="buttons">
-                <a href="{{ url_for('posts.update_post', post_id=post.id )}}"><button>Update Note</button></a>
+                <a href="{{ url_for('posts.update_post', post_id=post.id )}}"><button class="btn" >Update Note</button></a>
                 <form action="{{ url_for('posts.delete_post', post_id=post.id ) }}" method="POST">
                         <input type="submit" class="delete-button" value="Delete">
                 </form>

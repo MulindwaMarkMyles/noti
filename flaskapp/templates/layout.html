@@ -29,8 +29,10 @@
         {% endif %}
         {% if device %}
         <link rel="stylesheet" href="{{ url_for('static', filename='styles/layout-mobile.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/phone.css') }}">
         {% else %}
 	<link rel="stylesheet" href="{{ url_for('static', filename='styles/layout.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='styles/pc.css') }}">
 	{% endif %}
 	<script defer type="text/javascript" src="{{ url_for('static' , filename='scripts/layout.js') }}"></script>
         {% if title == "HOME" %}

@@ -30,7 +30,7 @@
                 {% for post in posts %}
                 <a class="card" href="{{ url_for('posts.post', post_id=post.id) }}">
                         <div>
-                                <div class="card-body card-title-js">{{ post.title }}</div>
+                                <div class="card-title-js">{{ post.title }}</div>
                                 <div class="card-body card-body-js">{{ post.content }}</div>
                                 <div class="card-date">{{ post.date_posted.strftime('%Y-%m-%d') }}</div>
                         </div>

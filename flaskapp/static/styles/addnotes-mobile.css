@@ -18,6 +18,8 @@
         box-shadow:5px 5px 10px rgba(0,0,0,0.3);
         border-radius: 10px;
         padding:10px;
+        background-color:#181D27e8;
+        
 }
 
 .field {
@@ -28,19 +30,21 @@
 .form-control-label {
         font-size:4vw;
         margin-bottom:10px;
+        color:white;
 }
 .form-control {
         padding:5px 10px;
         font-size: 4vw;
+        background-color: rgba(255, 255, 255, 0.7);
 }
 .form-control-c {
         height: 50vh;
 }
 .btn {
         padding:5px 10px;
-        background-color: black;
+        background-color: white;
         margin-top:20px;
-        color:white;
+        color:black;
         font-size:4vw;
         border:none;
         position: relative;

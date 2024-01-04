@@ -8,64 +8,77 @@
         box-sizing: border-box;
         font-family: 'Poppins' , sans-serif;
 }
+
 .note_context {
-        display:grid;
-        grid-template-rows: 150px 5px 1fr;
-        gap:25px;
-        margin-top:20px;
-        position: relative;
-        right:0px;
-        left:0px
+        margin:20px;
+        margin-top:40px;
+        display: flex;
+        flex-direction: column;
+        box-shadow:5px 5px 10px rgba(0,0,0,0.3);
+        border-radius: 10px;
+        padding:10px;
+        background-color:#181D27e8;
+
 }
-.title, 
-.note {
+label {
+        text-decoration: underline;
         font-size: 20px;
-        padding:20px;
-        font-family:"Montserrat", sans-serif;
+        color:white;
+        padding-bottom:20px;
+}
+.note,
+.title {
         overflow-wrap: break-word;
         word-wrap: break-all;
-        width:100vw;
+        font-size: 21px;
+        padding:5px 10px;
+        background-color: rgba(255, 255, 255, 0.7);
+        border-radius: 10px;
+        border: none;
 }
-.separator {
-        width:100%;
-        background-color: black;
-        height: 2px;
+.note {
+        height: 50vh;
+}
+.field {
+        display: flex;
+        flex-direction: column;
+        margin-bottom:10px;
 }
 .buttons {
+        padding:0px 20px;
+        margin-bottom: 100px;
         display: flex;
-        position:fixed;
         flex-direction: row;
-        gap:50px;
-        bottom:100px;
-        right:55px;
+        justify-content: right;
+        gap:20px;
 }
 .delete-button,
-.buttons a button {
+.btn {
+        padding:5px 10px;
         background-color: black;
-        padding:5px;
-        border:none;
+        margin-top:20px;
         color:white;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 17px;
-}
-.dts {
-        position: fixed;
-        bottom:30px;
-        transform:translateX(-50%);
-        left:50%;
         font-size:17px;
-        background-color: white;
-        padding:10px;
-        box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
+        border:none;
         border-radius: 5px;
-}
-@media (max-width:900px) {
-        .dts {
-                font-size:20px;
-        }
+        z-index:10;
+        cursor: pointer;
 }
 .delete-button {
         background-color: rgb(207, 146, 146);
         color:red
+}
+.dts {
+        position: fixed;
+        bottom:10px;
+        text-align: center;
+        font-size:17px;
+        padding:10px;
+        width:fit-content;
+        border-radius: 7px;
+        left:50%;
+        color:white;
+        transform: translateX(-50%);
+        box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
+        background-color: black;
 }

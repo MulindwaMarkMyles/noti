@@ -17,16 +17,25 @@
         box-shadow:5px 5px 10px rgba(0,0,0,0.3);
         border-radius: 10px;
         padding:10px;
+        background-color:#181D27e8;
+        
 }
 label {
         text-decoration: underline;
         font-size: 4vw;
+        color:white;
+        margin-bottom:20px;
 }
 .note,
 .title {
         overflow-wrap: break-word;
         word-wrap: break-all;
         font-size: 4.2vw;
+        padding:10px;
+        background-color: rgba(255, 255, 255, 0.8);
+}
+.note {
+        height:60vh;
 }
 .field {
         display: flex;
@@ -41,9 +50,9 @@ label {
 .delete-button,
 .btn {
         padding:5px 10px;
-        background-color: black;
+        background-color: white;
         margin-top:20px;
-        color:white;
+        color:black;
         font-size:4vw;
         border:none;
         width:100%;
