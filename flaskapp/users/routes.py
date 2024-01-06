@@ -77,9 +77,10 @@ def reset_password():
         form = RequestResetForm()
         if form.validate_on_submit():
                 user = User.query.filter_by(email=form.email.data).first()
-                send_reset_email(user)
-                flash("An email has been sent with instructions to reset your password.","info")
-                return redirect(url_for("users.login"))
+                if user:
+                        send_reset_email(user)
+                        flash("An email has been sent with instructions to reset your password.","info")
+                        return redirect(url_for("users.login"))
         if the_device():
                 return render_template("request_reset-mobile.html", title="Reset Password-Mobile", form=form, device=the_device())
         else:

@@ -3,7 +3,7 @@ from wtforms import StringField, PasswordField, SubmitField, BooleanField
 from flask_wtf.file import FileField, FileAllowed
 from wtforms.validators import DataRequired, Length,  EqualTo, ValidationError
 from flaskapp.models import User
-from validate_email_address import validate_email
+from validate_email_address import validate_email 
 from flask_login import current_user
 
 class RegistrationForm(FlaskForm):
@@ -56,7 +56,7 @@ class UpdateAccountForm(FlaskForm):
         def validate_email(self, email):
                 if email.data.__contains__(' '):
                         email.data = email.data.strip()
-                if validate_email(email.data):
+                if validate_email(email.data) and email.data != current_user.email:
                         user = User.query.filter_by(email=email.data).first()
                         if user:
                                 raise ValidationError("That email is already taken!")
@@ -72,8 +72,8 @@ class RequestResetForm(FlaskForm):
                         email.data = email.data.strip()
                 if validate_email(email.data):
                         user = User.query.filter_by(email=email.data).first()
-                        if user:
-                                raise ValidationError("That email is already taken!")
+                        if not user:
+                                raise ValidationError("That email appears not to be in our database!")
                 else:
                         raise ValidationError("That email is invalid!")
                 
