@@ -1,13 +1,14 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, BooleanField
 from flask_wtf.file import FileField, FileAllowed
-from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
+from wtforms.validators import DataRequired, Length,  EqualTo, ValidationError
 from flaskapp.models import User
+from validate_email_address import validate_email
 from flask_login import current_user
 
 class RegistrationForm(FlaskForm):
         username = StringField("Username", validators=[DataRequired(), Length(min=2, max=30)])
-        email = StringField("Email", validators=[DataRequired(), Email()])
+        email = StringField("Email", validators=[DataRequired()])
         password = PasswordField("Password", validators=[DataRequired()])
         confirm_password = PasswordField("Confirm Password", validators=[DataRequired(), EqualTo('password')])
         submit = SubmitField('Sign Up')
@@ -19,24 +20,30 @@ class RegistrationForm(FlaskForm):
         
         def validate_email(self, email):
                 if email.data.__contains__(' '):
-                        raise ValidationError("Please make sure the email has no spaces before and after it!")
-                user = User.query.filter_by(email=email.data).first()
-                if user:
-                        raise ValidationError("That email is already taken!")
+                        email.data = email.data.strip()
+                if validate_email(email.data):
+                        user = User.query.filter_by(email=email.data).first()
+                        if user:
+                                raise ValidationError("That email is already taken!")
+                else:
+                        raise ValidationError("That email is invalid!")
+                        
 
 class LoginForm(FlaskForm):
-        email = StringField("Email", validators=[DataRequired(), Email()])
+        email = StringField("Email", validators=[DataRequired()])
         password = PasswordField("Password", validators=[DataRequired()])
         remember = BooleanField('Remember Me')
         submit = SubmitField('Login')
         
         def validate_email(self, email):
                 if email.data.__contains__(' '):
-                        raise ValidationError("Please make sure the email has no spaces before and after it!")
+                        email.data = email.data.strip()
+                if not validate_email(email.data):
+                        raise ValidationError("That email is invalid!")
         
 class UpdateAccountForm(FlaskForm):
         username = StringField("Username:", validators=[DataRequired(), Length(min=2, max=30)])
-        email = StringField("Email:", validators=[DataRequired(), Email()])
+        email = StringField("Email:", validators=[DataRequired()])
         picture = FileField("Change Profile Picture", validators=[FileAllowed(["jpeg","jpg","png"])])
         submit = SubmitField('Update')
                 
@@ -48,22 +55,27 @@ class UpdateAccountForm(FlaskForm):
         
         def validate_email(self, email):
                 if email.data.__contains__(' '):
-                        raise ValidationError("Please make sure the email has no spaces before and after it!")
-                if email.data != current_user.email:
+                        email.data = email.data.strip()
+                if validate_email(email.data):
                         user = User.query.filter_by(email=email.data).first()
                         if user:
                                 raise ValidationError("That email is already taken!")
+                else:
+                        raise ValidationError("That email is invalid!")
                         
 class RequestResetForm(FlaskForm):
-        email = StringField("Email", validators=[DataRequired(), Email()])
+        email = StringField("Email", validators=[DataRequired()])
         submit = SubmitField("Request Password Reset")
         
         def validate_email(self, email):
                 if email.data.__contains__(' '):
-                        raise ValidationError("Please make sure the email has no spaces before and after it!")
-                user = User.query.filter_by(email=email.data).first()
-                if user is None:
-                        raise ValidationError("There is no account with that email!, Please register first.")
+                        email.data = email.data.strip()
+                if validate_email(email.data):
+                        user = User.query.filter_by(email=email.data).first()
+                        if user:
+                                raise ValidationError("That email is already taken!")
+                else:
+                        raise ValidationError("That email is invalid!")
                 
 class ResetPasswordForm(FlaskForm):
         password = PasswordField("Password", validators=[DataRequired()])

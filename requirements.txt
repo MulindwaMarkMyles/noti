@@ -32,6 +32,7 @@ protobuf
 SQLAlchemy
 Tcl
 typing_extensions
+validate-email-address
 virtualenv
 Werkzeug
 WTForms
